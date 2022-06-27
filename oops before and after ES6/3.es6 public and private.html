@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 1. this is the Public Property....
+        // class emp{
+        //     constructor(n){
+        //         this.name = n;
+        //     }
+        //     getName(){
+        //         console.log(this.name);
+        //     }
+        // }
+
+        // let Emp1 = new emp('Anurag Mourya');
+        // console.log(Emp1);
+        // console.log(Emp1.name);//it is called because it is a Public property..
+
+
+        //Private property....
+
+        class emp{
+            #name = "";//to made property private but it is not called outside of class..
+            constructor(n){
+                this.#name = n;//to made property private but it is not called outside of class..
+            }
+            // getName(){
+            //     console.log(this.#name);
+            // }
+
+            #getName(){//private of method.. but it is not called outside of class..
+                console.log(this.#name);
+            }
+
+            pubfn(){//get private method for called. for called outside of class...
+                this.#getName();
+            }
+        }
+
+        let Emp1 = new emp('Anurag Mourya');
+        console.log(Emp1);
+       // console.log(Emp1.#name);//it is not called because it is a Private property..
+         // console.log(Emp1.getName());//it is called because it is called as method not property..
+
+         //console.log(Emp1.#getName());//method is also not called because it is a Private property..
+
+         console.log(Emp1.pubfn());//called private method..
+
+    </script>
+</body>
+</html>

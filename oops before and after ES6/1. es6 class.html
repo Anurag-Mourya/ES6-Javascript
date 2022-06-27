@@ -1,0 +1,49 @@
+<!DOCTYPE html>    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    //this is the Person class
+    class Person{
+        //1.constructor function
+        constructor(n,a){//constructro function called when we created object..
+            this.name = n;
+            this.age = a
+           
+        }
+        //create method..And this method connected as protopype with person1 and person2..
+
+        //2. Prototype method / add normal method in class..
+        sayHi(){
+            console.log('Hi...');
+        }
+
+        //3. static method..
+        static hello(){
+            console.log('Hello...');
+        }
+
+        //create static property..
+        static hii = 'Hello how are you..';
+    }
+
+    //using Person class create person1 object..
+    let person1 = new Person('Anurag',23);//two times constructon function called person1 and person2
+
+    let person2 = new Person('Amit',17);//two times constructon function called.. person1 and person2
+
+    console.log(person1);
+    console.log(person2);
+
+    person1.sayHi();//call method from person1.. And this method connected as protopype with person1 and person2..In es5 we are said to connect the prototype but in es6 when we create the method it is already connected as a prototype with all the objects..
+
+    Person.hello();//static method is not call with object it is called with class...
+
+   console.log(Person.hii);//static propery is also called with class.. 
+
+
+</script>
+</body>
+</html>

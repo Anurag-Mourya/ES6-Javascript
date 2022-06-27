@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Creacting creature Constructor.. and Creature Prototype is created self..
+
+function Creature(ls){
+    this.lifeSpam = ls;
+}
+
+//given external method(breadth) of Creature Constructor inside Creature prototype..
+Creature.prototype.breath = function(){
+    console.log('breathing...');
+}
+
+//make object his lifespan is 100...
+let creature1 = new Creature(100);
+console.log(creature1);
+
+ //Creacting Person Constructor..
+function Person(first,last,a){
+    this.firstName = first;
+    this.lastName = last;
+    this.age = a;
+}
+
+//given external method(fullName) of Person Constructor inside Person prototype..
+Person.prototype.fullName = function(){
+    this.firstName + " " + this.lastName;
+}
+
+//method of Creature prototype repleced to the Person prototype..
+
+// Person.prototype  = Object.create(Creature.prototype);
+//given error because we are assign the Person prototype to Creature Prototype 
+
+//method of Creature prototype connected to the Person prototype..
+Person.prototype.__proto__ = Object.create(Creature.prototype);//Object.create is a method is the connection of prototypes...
+
+let person = new Person('Anurag', 'Mourya', 23);
+let person1 = new Person('Amit', 'Mourya', 17);
+console.log(person);
+console.log(person1);
+console.log(person1.breath());
+console.log(person1.fullName());
+
+//here the person object is also take breadth so we are connected Creature prototype to Person prototype...
+    </script>
+
+    <script>
+        function Person(fN, lN){
+            this.firstName = fN;
+            this.lastName = lN;
+        }
+
+        let man1 = new Person('Anurag','Mourya');
+        console.log(man1);
+
+        function SoftwareEngineer(lang, sal){
+            this.language = lang,
+            this.salary = sal;
+        }
+
+        let man2 = new SoftwareEngineer('JavaScript', 5000);
+        console.log(man2);
+
+        
+
+        Person.prototype.__proto__ = Object.create(SoftwareEngineer.prototype);
+
+        console.log(man2.firstName);
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Mixing.. To given the extra power of calss.. To mix multiple things(classes,objects) but extends we can mix a class
+
+        let usefullMethod = {
+            sayHi(){
+                console.log('Hy...');
+            },
+
+            sayBy(){
+                console.log('By...');
+            }
+        }
+        class user{
+            constructor(){
+                this.name = 'Anurag Mourya';
+            }
+        }
+  
+        let usr1 = new user();
+        console.log(usr1);
+
+        //Now we want to mixing the object and class..
+        Object.assign(user.prototype, usefullMethod);//use this sntax to mixing.. and all the methods of Object is connected with user class...
+        console.log(usr1.sayHi());
+        
+
+        //Why we not use extends...
+        let usefullMethod2 = {
+            sayHi(){
+                console.log('Hy...');
+            },
+
+            sayBy(){
+                console.log('By...');
+            }
+        }
+
+        class admin extends user{//all the properties and method is come in user class and but not usefullMehod() method..
+           
+        }
+        Object.assign(admin.prototype, usefullMethod);//we can comment of this line but not line no 32..
+        Object.assign(admin.prototype, usefullMethod2);//mix to objects in a single class..
+        let admin1 = new admin();
+        console.log(admin1);
+        console.log(admin1.sayBy());//we cannot use the method and property of object if we comment both the Object line no 41and 32....
+      
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //                     // 1.NOTES...................
+
+
+
+        // // manager inharit employ class or manager taken all the power of employ class..
+
+        // class employ{
+        //     constructor(n){
+        //       this.name = n;
+        //     }
+        // }
+
+        // class manager extends employ{//here the manager class extends(taken power) of  employ class...
+        // }
+
+        // let mang1 = new manager('Anurag');//we are not created object of employ class but the output is given employ class because the manager class extends employ class.Here the connection is stablished property.      
+
+        // console.log(mang1);// see all the prototype is connected each other Here the connerction is stablished Prototype methods...
+
+
+
+        // //That means when we extends the classes then all the class(properties and methods) copied into other class.....
+
+
+
+
+        // 2. NOTES...................
+
+
+        class employ {
+            constructor(n) {
+                this.name = n;
+            }
+
+            msg() {
+                console.log('come from employ class');
+            }
+        }
+
+        class manager extends employ {
+            constructor(p, d) {
+                super(p)//it is connected with employ construction(n) and pass the value in p.
+                this.depatment = d;
+            }
+            msg() {//we want to call same method define in employ class..
+                console.log('come from employ class use in manager class');
+            }
+
+
+            info() {
+                super.msg();//go to employ(parent class) prototype and serch msg() method. 
+                this.msg();//when we use same method whouse define in other class then in use current class use this.method() to get value and use other class use super.method() to get the value...
+                console.log(this.name + 'is a manager of department of ' + this.depatment);
+            }
+        }
+
+        let mang1 = new manager('Anurag', 'WebDevolopment');
+
+        console.log(mang1);
+
+        mang1.msg();//msg() is define in employ class and used in mang1 object..
+
+        mang1.info();// here name is used in employ class depatment is used in manager class..
+
+        mang1.info();//all the prototypes are connected ... We use a class method to an other class...  
+
+
+
+        //nested inheritence...
+
+        class admin extends manager { //it is taken all the power(mathods and properties..) of employ and manager
+        }
+        let adm1 = new admin('Anurag', 'WebDevelopment');
+        console.log(adm1);
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

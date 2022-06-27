@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let person1 = {
+        //     firstName: 'Anurag',
+        //     'last name': 'Mourya',
+        //     age: 23,
+        //     fullName: function(){
+        //         console.log(this.firstName + " " + this['last name']);
+        //     }
+        // }
+
+        // console.log(person1.firstName);
+        // console.log(person1['last name']);
+        // person1.age = 25;
+        // console.log(person1.age);
+        // person1.fullName();
+
+        // //other way to make the object....
+        // // let person2 = {}; or 
+        // let person2 = new Object();
+        // person2.name = 'Anurag';
+        // person2.sayHy = function(){
+        //     alert('hy');
+        // }
+        // console.log(person2);
+        // person2.sayHy();
+
+
+        // Constructon function ..
+
+        function Person(fName, lName, a){
+            this.firstName = fName;
+            this.lastName = lName;
+            this.age = a;
+            this.sayHi = function(){
+                alert(hii);
+            }
+
+            this.changeAge = function(newAge){
+                this.age = newAge;
+            }
+        }
+
+        let person3 = new Person('Anurag', 'Mourya', 23);
+
+        //change age with method..
+        person3.changeAge(20);
+
+        let person4 = new Person('Amit', 'Mourya', 17);
+        let person5 = new Person ('Krishna', 'Mourya', 25);
+        console.log(person3);
+        console.log(person4);
+        console.log(person5);
+    </script>
+
+<script src="prototype.js"></script>
+<script src="inheritence.js"></script>
+    
+</body>
+</html>
